@@ -141,7 +141,10 @@
     var scrollToShort = function (index, behavior) {
       var card = shortCards[index];
       if (card) {
-        card.scrollIntoView({ behavior: behavior || "smooth", inline: "center", block: "nearest" });
+        var trackRect = galleryTrack.getBoundingClientRect();
+        var cardRect = card.getBoundingClientRect();
+        var targetScrollLeft = galleryTrack.scrollLeft + (cardRect.left + cardRect.width / 2) - (trackRect.left + trackRect.width / 2);
+        galleryTrack.scrollTo({ left: targetScrollLeft, behavior: behavior || "smooth" });
       }
     };
 
