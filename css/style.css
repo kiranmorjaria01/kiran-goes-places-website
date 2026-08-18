@@ -740,6 +740,8 @@ ul { margin: 0; padding: 0; }
   line-height: 1.5;
   font-size: 16px;
 }
+/* Override .article-body p's larger margin when a facts grid sits inside a post body */
+.article-facts .quick-fact p { margin: 0; }
 
 /* ==========================================================================
    FAQ
@@ -995,6 +997,27 @@ ul { margin: 0; padding: 0; }
 }
 .article-byline-name { font-weight: 700; font-size: 15px; }
 .article-byline-date { color: var(--grey-500); font-size: 13px; }
+.article-updated { margin-top: 2px; }
+
+/* "The short version" block, directly under the H1 on every post */
+.article-tldr {
+  background: var(--clay-light);
+  border-radius: 16px;
+  padding: var(--space-4);
+  margin-top: var(--space-3);
+}
+.article-tldr .eyebrow { color: var(--clay-dark); margin-bottom: var(--space-2); }
+.article-tldr ul {
+  margin: 0;
+  padding-left: 1.2em;
+}
+.article-tldr li {
+  margin-bottom: 8px;
+  line-height: 1.6;
+  color: var(--grey-700);
+  font-size: 16px;
+}
+.article-tldr li:last-child { margin-bottom: 0; }
 .article-cover {
   width: 100%;
   height: auto;
