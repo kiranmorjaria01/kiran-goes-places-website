@@ -25,14 +25,26 @@ My suggestion: push `geo-brief` to a Netlify preview URL (or merge to `main` if 
 - **VideoObject `duration`**: omitted entirely across all 50 posts, no source for it anywhere in the repo.
 - **BreadcrumbList depth**: currently Home / Blog / [post] on every post. Once Phase 3 ships the destination hub pages, these need a fourth level inserted (Home / [Destination] / Blog / [post], or however you'd prefer the hierarchy read) — noting it now so it doesn't get missed.
 
-## Hub page Quick Facts gaps (Phase 3)
+## Hub page Quick Facts gaps (Phase 3, partially resolved below)
 
-Every field below was left out of its hub's Quick Facts block because no existing post states it, not because it was overlooked. If you can point me at (or write) a source for any of these, they're quick to add:
+- **Best time to visit:** still missing for Colombia, Peru, Guatemala (only have a narrow Acatenango-specific dry/wet note, not a whole-country one), Japan, Nepal, because no existing post states one. Have it for Bolivia (Uyuni dry/wet season) and Patagonia (Puerto Natales' flight window).
+- **Suggested trip length:** still missing as an overall figure for Peru, Bolivia, Japan (beyond Tokyo's 5 days), Nepal, for the same reason. Have it for Colombia (2-4 weeks) and Guatemala (7/10/14 days); Peru and Patagonia have component lengths (e.g. '4 days for the Salkantay Trek') rather than a single trip-length figure.
+- **Currency and Language:** resolved on your instruction (see below) — every hub now has both, cross-referenced online rather than sourced from a post.
+- **Daily budget:** resolved on your instruction (see below) — every hub now has an estimated daily budget, researched online rather than sourced from Kiran's own posts.
 
-- **Best time to visit:** missing for Colombia, Peru, Guatemala (only have a narrow Acatenango-specific dry/wet note, not a whole-country one), Japan, Nepal. Have it for Bolivia (Uyuni dry/wet season) and Patagonia (Puerto Natales' flight window).
-- **Suggested trip length:** missing as an overall figure for Peru, Bolivia, Japan (beyond Tokyo's 5 days), Nepal. Have it for Colombia (2-4 weeks) and Guatemala (7/10/14 days); Peru and Patagonia have component lengths (e.g. '4 days for the Salkantay Trek') rather than a single trip-length figure.
-- **Currency:** missing for Bolivia (boliviano is never named in any Bolivia post, even though obviously correct), Patagonia/Chile, Nepal. Have it for Colombia, Peru, Guatemala, Japan (all literally named in the posts).
-- **Rough daily budget:** missing on every hub. None of the 50 posts state a per-day budget figure, only scattered per-item or per-tour prices, so this field doesn't appear anywhere rather than being approximated from those.
+### Currency, language and daily budget — sourced externally, on your instruction
+
+You asked me to add these and research them online, overriding the earlier default (documented above and originally confirmed with you) of leaving ungrounded facts out. These are **not** sourced from Kiran's own blog posts the way every other hub fact is — they're my read of published third-party travel-cost sites (Nomadic Matt, Budget Your Trip, and similar), cross-referenced across 3-4 sources per destination and rounded to a sensible range. Treat them as general research, not as what Kiran personally spent:
+
+- Colombia: Spanish · Colombian peso (COP) · $35-50/day
+- Peru: Spanish · Peruvian sol (PEN) · $50-80/day
+- Guatemala: Spanish · Guatemalan quetzal (GTQ) · $25-40/day
+- Patagonia (Chile): Spanish · Chilean peso (CLP) · $60-80/day within Torres del Paine specifically (broader Chile/Patagonia estimates run higher)
+- Bolivia: Spanish · Bolivian boliviano (BOB) · $30-50/day
+- Japan: Japanese · Japanese yen (JPY) · $60-100/day
+- Nepal: Nepali · Nepalese rupee (NPR) · $20-35/day, scoped to Kathmandu since that's all the hub currently covers
+
+Worth a periodic re-check since travel costs drift — these reflect August 2026 search results.
 
 ## Nepal hub is thin (Phase 3)
 

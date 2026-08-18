@@ -74,6 +74,12 @@
   });
 
   /* ---------- Smooth-scroll in-page links, offset for the fixed nav ---------- */
+  function scrollToHashTarget(target, behavior) {
+    var navHeight = nav ? nav.getBoundingClientRect().height : 0;
+    var top = target.getBoundingClientRect().top + window.scrollY - navHeight - 16;
+    window.scrollTo({ top: top, behavior: behavior || "smooth" });
+  }
+
   document.querySelectorAll('a[href^="#"]').forEach(function (link) {
     var hash = link.getAttribute("href");
     if (!hash || hash.length < 2) { return; }
@@ -81,11 +87,24 @@
       var target = document.querySelector(hash);
       if (!target) { return; }
       e.preventDefault();
-      var navHeight = nav ? nav.getBoundingClientRect().height : 0;
-      var top = target.getBoundingClientRect().top + window.scrollY - navHeight - 16;
-      window.scrollTo({ top: top, behavior: "smooth" });
+      scrollToHashTarget(target);
     });
   });
+
+  /* ---------- Land correctly on a #hash when arriving from another page ----------
+     Browsers scroll to the target on their own before the fixed nav's height (and
+     any late-loading images above it) are accounted for, so the first arrival can
+     land with the nav overlapping the target, or short/long depending on layout
+     that hasn't settled yet. Re-scroll once the page (images included) has fully
+     loaded, using the same nav-offset math as the click handler above. */
+  if (window.location.hash && window.location.hash.length > 1) {
+    var landingTarget = document.querySelector(window.location.hash);
+    if (landingTarget) {
+      window.addEventListener("load", function () {
+        scrollToHashTarget(landingTarget, "auto");
+      });
+    }
+  }
 
   /* ---------- Fade-in on scroll ---------- */
   var fadeEls = document.querySelectorAll(".fade-in");
