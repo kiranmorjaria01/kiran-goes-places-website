@@ -2,6 +2,16 @@
 
 Running list across all phases. Phase 1 additions below; will grow as later phases surface gaps.
 
+## Validation blocked on deployment
+
+The brief's "validation before you call it done" checklist has six items. Three I've been able to verify directly from the files (details in each phase's CHANGES.md entry): all JSON-LD parses as valid JSON with expected `@type`s across all 60 pages, zero broken internal links (checked programmatically across the whole site, not just spot-checked), and the sitemap contains exactly the 60 pages that exist, no more, no less. The other three genuinely need the site live somewhere:
+
+- **Google's Rich Results Test** and **Schema.org's validator** — both need a public URL to test against; I can't run them against a branch that only exists on this machine.
+- **Lighthouse SEO score of 100 on a sample of five pages** — same constraint, needs a real URL.
+- **Core Web Vitals not regressed against the pre-change baseline** — the brief says to measure before starting, but the site was never live/deployed at any point I had access to it, so there's no baseline to compare against. Worth measuring both this branch and current production once both are reachable.
+
+My suggestion: push `geo-brief` to a Netlify preview URL (or merge to `main` if you're comfortable), then I can run all three remotely and report back before you treat this as fully validated.
+
 ## Decisions needed
 
 - **Training crawlers in robots.txt** (Phase 1): I defaulted to allowing GPTBot, ClaudeBot, Google-Extended, Applebot-Extended and CCBot per the brief's instruction, but this is explicitly your call. See the tradeoff written out in CHANGES.md. Say the word if you'd rather block any of them.
