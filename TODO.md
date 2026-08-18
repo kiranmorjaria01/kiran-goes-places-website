@@ -61,7 +61,11 @@ As with the other externally-sourced fields, these are general research rather t
 
 ## Nepal hub is thin (Phase 3)
 
-Only Kathmandu is covered by existing posts (2 of them). The homepage's own About section mentions the Everest Base Camp trek happened, but there's no blog post for it, so the Nepal hub can't link to or describe it. Worth prioritising an EBC write-up if Nepal is meant to be a fuller hub eventually.
+Only Kathmandu is covered by existing posts (2 of them). The homepage's own About section mentions the Everest Base Camp trek happened, but there's no blog post for it, so the Nepal hub can't link to or describe it. This is now stated directly on the hub itself (Recommended trip time fact: 'a trip built around the Everest Base Camp trek is a different scale entirely... one Kiran has done but not yet written up here') rather than left as a silent gap. Worth prioritising an EBC write-up if Nepal is meant to be a fuller hub eventually.
+
+## Japan hub only covers Tokyo (new)
+
+Same situation as Nepal, now labelled the same honest way. The Japan hub's Quick Facts used to state '5-7 days' as the trip length, which was only ever true for Tokyo alone and read as a claim about Japan as a whole, a real accuracy problem you caught. Fixed by renaming the regions tile to 'Popular Spots' and stating outright that Kyoto and Osaka guides are coming soon, and by giving the realistic country-wide trip length (2 to 4 weeks, cross-referenced against several published Japan-itinerary guides) separately from the current Tokyo-only scope (5-7 days), rather than conflating the two. Worth prioritising Kyoto/Osaka write-ups to actually fill that gap.
 
 ## Missing video transcripts (Phase 6)
 

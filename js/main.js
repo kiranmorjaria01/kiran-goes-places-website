@@ -92,17 +92,41 @@
   });
 
   /* ---------- Land correctly on a #hash when arriving from another page ----------
-     Browsers scroll to the target on their own before the fixed nav's height (and
-     any late-loading images above it) are accounted for, so the first arrival can
-     land with the nav overlapping the target, or short/long depending on layout
-     that hasn't settled yet. Re-scroll once the page (images included) has fully
-     loaded, using the same nav-offset math as the click handler above. */
+     Browsers scroll to the target on their own before the fixed nav's height is
+     accounted for, so the first arrival can land with the nav overlapping the
+     target. Worse, on a slower connection the page keeps reflowing for a while
+     after that (fonts, iframes, below-the-fold images), which quietly moves the
+     target and undoes a single one-shot correction, which is what made this need
+     two or three clicks before it looked right. Instead of waiting for one 'load'
+     event, keep re-checking the target's position for a few seconds and correct
+     it each time it moves, until it holds still twice in a row, and give up
+     immediately if the visitor scrolls/touches/types, since that means they've
+     taken over. */
   if (window.location.hash && window.location.hash.length > 1) {
     var landingTarget = document.querySelector(window.location.hash);
     if (landingTarget) {
-      window.addEventListener("load", function () {
-        scrollToHashTarget(landingTarget, "auto");
+      var settleAttempts = 0;
+      var maxSettleAttempts = 25; // ~5s total at 200ms apart
+      var lastTop = null;
+      var settleCancelled = false;
+
+      var cancelSettle = function () { settleCancelled = true; };
+      ["wheel", "touchstart", "keydown"].forEach(function (evt) {
+        window.addEventListener(evt, cancelSettle, { once: true, passive: true });
       });
+
+      var settle = function () {
+        if (settleCancelled || settleAttempts >= maxSettleAttempts) { return; }
+        settleAttempts++;
+        var top = landingTarget.getBoundingClientRect().top + window.scrollY;
+        if (lastTop === null || Math.abs(top - lastTop) > 2) {
+          lastTop = top;
+          scrollToHashTarget(landingTarget, "auto");
+          window.setTimeout(settle, 200);
+        }
+      };
+      settle();
+      window.addEventListener("load", settle);
     }
   }
 
