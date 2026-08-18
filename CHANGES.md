@@ -2,6 +2,16 @@
 
 Tracks what shipped per phase of the GEO/AEO brief. One entry per phase, most recent first.
 
+## Best season and recommended trip time (2026-08-18)
+
+You asked for a 'Best Season' (with reasoning) and 'Recommended Trip Time' for every destination, researched online. Added both to all 7 hubs' Quick Facts, same sourcing basis as the Language/Currency/Daily budget fields added in the previous round (published travel blogs, cross-referenced, not from Kiran's own posts, full sourcing written up in TODO.md):
+
+- Renamed the existing 'Suggested trip length' tiles to 'Recommended trip time' (Colombia, Peru, Guatemala, Patagonia, Japan) and 'Best time to visit' to 'Best season' (Patagonia, Bolivia) for consistent labelling across all 7 hubs, updating Bolivia and Patagonia's reasoning text at the same time.
+- Added brand-new tiles where a hub had neither: Best season for Colombia, Peru, Guatemala and Japan; Recommended trip time for Bolivia and Nepal; Best season for Nepal.
+- Best season is written as reasoning, not just a date range, per your request ('explain why for each'), e.g. Bolivia now reads 'May to October for full dry-season access and clear skies, or January to March if the mirror effect is the priority, since it's the thin layer of rainwater that creates it.'
+- Hub-specific supplementary tiles that were already correct and non-redundant were left alone rather than merged away: Guatemala's separate 'Best time for Acatenango' tile (narrower than the whole-country season call) and Peru's 'Rough cost' tile both stay as-is.
+- Edited the 7 hub HTML files directly rather than regenerating from `build_hubs.py`, to avoid re-triggering the nav-dropdown-wipe bug from earlier in Phase 3. Verified programmatically across all 7 files: HTML parses, every JSON-LD block parses, `nav-dropdown-menu` present exactly once per file, both new field labels present. Verified in-browser on the Bolivia hub: all six Quick Facts tiles render at equal height with no overflow or squashed text.
+
 ## Post-review fixes (2026-08-18)
 
 Feedback from reviewing the branch locally, after Phase 7:

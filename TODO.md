@@ -25,10 +25,9 @@ My suggestion: push `geo-brief` to a Netlify preview URL (or merge to `main` if 
 - **VideoObject `duration`**: omitted entirely across all 50 posts, no source for it anywhere in the repo.
 - **BreadcrumbList depth**: currently Home / Blog / [post] on every post. Once Phase 3 ships the destination hub pages, these need a fourth level inserted (Home / [Destination] / Blog / [post], or however you'd prefer the hierarchy read) — noting it now so it doesn't get missed.
 
-## Hub page Quick Facts gaps (Phase 3, partially resolved below)
+## Hub page Quick Facts gaps (Phase 3, resolved below)
 
-- **Best time to visit:** still missing for Colombia, Peru, Guatemala (only have a narrow Acatenango-specific dry/wet note, not a whole-country one), Japan, Nepal, because no existing post states one. Have it for Bolivia (Uyuni dry/wet season) and Patagonia (Puerto Natales' flight window).
-- **Suggested trip length:** still missing as an overall figure for Peru, Bolivia, Japan (beyond Tokyo's 5 days), Nepal, for the same reason. Have it for Colombia (2-4 weeks) and Guatemala (7/10/14 days); Peru and Patagonia have component lengths (e.g. '4 days for the Salkantay Trek') rather than a single trip-length figure.
+- **Best season and Recommended trip time:** resolved on your instruction (see below) — every hub now has both, researched online with reasoning given for the season call, rather than left as a gap.
 - **Currency and Language:** resolved on your instruction (see below) — every hub now has both, cross-referenced online rather than sourced from a post.
 - **Daily budget:** resolved on your instruction (see below) — every hub now has an estimated daily budget, researched online rather than sourced from Kiran's own posts.
 
@@ -45,6 +44,20 @@ You asked me to add these and research them online, overriding the earlier defau
 - Nepal: Nepali · Nepalese rupee (NPR) · $20-35/day, scoped to Kathmandu since that's all the hub currently covers
 
 Worth a periodic re-check since travel costs drift — these reflect August 2026 search results.
+
+### Best season and recommended trip time — sourced externally, on your instruction
+
+Same basis as above: researched from published travel blogs and cross-referenced across several sources rather than pulled from Kiran's own posts, on your explicit instruction. Best season includes the reasoning behind the call (which is what you asked for), not just a date range:
+
+- Colombia: best Dec-Mar (driest window nationally, before the wetter Apr-May and Oct-Nov spells); 2-4 weeks recommended (existing figure, unchanged)
+- Peru: best May-Sept (the Andean dry season, clearest Salkantay/Machu Picchu conditions, though also the busiest and coldest at night); 7-10 days recommended, covering Cusco plus the Salkantay trek
+- Guatemala: best Nov-Apr (dry season, best visibility for the Acatenango summit push specifically); trip length kept as the existing 7/10/14-day options, unchanged
+- Patagonia (Torres del Paine): best Nov-Mar (the Patagonian summer, when park refugios and campsites are open and trails are passable; outside this window much of the W Trek infrastructure closes); 4-5 days recommended for the full W Trek, unchanged
+- Bolivia: best May-Oct for dry-season access and clear skies, or Jan-Mar specifically if the Uyuni mirror effect is the priority (needs the thin layer of rainwater that only forms then); 5-7 days recommended, added new (La Paz plus a 3-day Uyuni tour)
+- Japan: best Mar-Apr (cherry blossom) or Sept-Nov (autumn colour, fewer crowds and better prices than spring); 5-7 days recommended, unchanged from existing Tokyo-scoped figure
+- Nepal: best Oct-Nov for Kathmandu specifically (post-monsoon, clear skies, before winter cold sets in) since that's all the hub currently covers; 2-3 days recommended, added new, scoped to Kathmandu only
+
+As with the other externally-sourced fields, these are general research rather than what Kiran personally experienced, and worth re-checking periodically.
 
 ## Nepal hub is thin (Phase 3)
 
