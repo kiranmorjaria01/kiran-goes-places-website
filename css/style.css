@@ -1082,6 +1082,27 @@ ul { margin: 0; padding: 0; }
   max-width: none;
   margin-top: var(--space-4);
 }
+.article-author {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: var(--space-6);
+  padding-top: var(--space-5);
+  border-top: 1px solid var(--grey-300);
+}
+.article-author img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+.article-author p {
+  font-size: 14px;
+  color: var(--grey-700);
+}
+.article-author a { color: var(--clay-dark); text-decoration: underline; }
+.article-author a:hover { color: var(--clay); }
 .article-video .showreel-frame { margin-top: var(--space-3); }
 .article-transcript { margin-top: var(--space-4); }
 .article-transcript .transcript-note {
