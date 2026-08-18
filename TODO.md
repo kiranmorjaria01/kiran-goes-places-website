@@ -28,6 +28,26 @@ Every field below was left out of its hub's Quick Facts block because no existin
 
 Only Kathmandu is covered by existing posts (2 of them). The homepage's own About section mentions the Everest Base Camp trek happened, but there's no blog post for it, so the Nepal hub can't link to or describe it. Worth prioritising an EBC write-up if Nepal is meant to be a fuller hub eventually.
 
-## Missing video transcripts (Phase 6, not started)
+## Missing video transcripts (Phase 6)
 
-Not yet assessed — will list every video needing a real transcript once Phase 6 starts.
+Every one of the 50 videos needs a real transcript from you — I have no access to actual captions, and per the brief I have not auto-generated any from a model. What's live now on every post is a 150-250 word written summary of the video's content (labelled 'Video summary', not 'Transcript', so it's not misrepresented), grounded in what each post's own text already describes. Swap these for real transcripts whenever you have them; the summaries are a genuine stopgap, not a substitute.
+
+The 50 videos, in one list for reference:
+
+Colombia: 12-hours-in-bogota, cartagena-food-crawl, cartagena-salsa-lessons-and-door-knockers, cartagena-street-art-and-wildlife, colombia-2-3-4-week-itinerary, medellin-hummingbird-murals-and-bulletproof-walls, medellin-three-days-and-a-guide-called-miguel, minca-a-guide-named-richard-who-talks-to-birds, salento-coffee-country-guide, salento-two-day-vlog, tayrona-hostel-that-feels-like-fiji, tayrona-national-park-guide
+
+Peru: cusco-in-3-days, hiking-the-salkantay-trek, machu-picchu-everything-you-need-to-know, rainbow-mountain-clouds, salkantay-trek-things-to-know, silent-hiking-salkantay-to-machu-picchu, we-made-it-to-machu-picchu
+
+Guatemala: acatenango-fuego-smoking-and-the-best-sunset-yet, acatenango-weak-ankles-and-what-i-wish-id-known, antigua-chocolate-anthem-and-a-volcano-view, antigua-top-things-to-do, free-cerveza-hostel-and-a-tiny-scorpion, guatemala-erupting-volcanoes-and-a-bee-that-bites, guatemala-itinerary-7-10-or-14-days, lake-atitlan-one-lake-five-different-towns, san-pedro-horseback-and-a-4am-sunrise-hike, san-pedro-san-juan-top-things-to-do, semuc-champey-butts-up-and-the-prettiest-water, tikal-howler-monkeys-and-a-lost-mayan-city
+
+Patagonia: w-trek-day-1-edge-of-the-world, w-trek-day-2-los-cuernos, w-trek-day-3-french-valley, w-trek-day-4-grey-glacier, w-trek-four-days-patagonia, w-trek-silent-hiking-patagonia, w-trek-things-to-know
+
+Bolivia: atacama-to-uyuni-road-trip, sunrise-uyuni-salt-flats-mirror, uyuni-salt-flats-things-to-know, salt-hotel-bolivia, la-paz-travel-guide
+
+Japan: 5-days-in-tokyo-itinerary, tokyo-travel-guide-20-things, tokyo-vegetarian-food-guide, mount-fuji-viewpoints-kawaguchiko, japanese-grand-prix-suzuka-first-f1-race
+
+Nepal: kathmandu-haircut-and-momos-24-hours, kathmandu-top-things-to-do
+
+## Chapter lists (Phase 6)
+
+Handled differently to transcripts: rather than skip this or guess, I checked all 50 videos live on YouTube (via their real `ytInitialData` chapter markers, not the video content itself) and pulled genuine chapter data where it exists. 40 of the 50 have real YouTube chapters and now show them on the post, each one a link straight to that timestamp on YouTube. The other 10 don't have chapters set on YouTube at all, so nothing was added for them (no fabricated chapter markers): 12-hours-in-bogota, cartagena-salsa-lessons-and-door-knockers, minca-a-guide-named-richard-who-talks-to-birds, silent-hiking-salkantay-to-machu-picchu, w-trek-day-1-edge-of-the-world, w-trek-day-2-los-cuernos, w-trek-day-3-french-valley, w-trek-day-4-grey-glacier, w-trek-silent-hiking-patagonia, w-trek-things-to-know. If you add chapters to any of those on YouTube later, let me know and I'll pull them in.

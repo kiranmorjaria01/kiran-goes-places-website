@@ -2,6 +2,15 @@
 
 Tracks what shipped per phase of the GEO/AEO brief. One entry per phase, most recent first.
 
+## Phase 6: video transcripts (2026-08-18)
+
+- **Video summaries on all 50 posts.** No real captions were available and none were auto-generated from a model, per the brief's explicit instruction — instead, every post now has an expandable 'Video summary' block (native `<details>`/`<summary>`, present in the DOM on load, not fetched on click) with a 150-250 word summary of what the video actually covers, naming the specific places featured. Every summary was written from the post's own text (re-derived from the full reads done across Phases 3-5, not newly guessed), and every single video is flagged individually in TODO.md for you to supply the real transcript.
+- **Chapter lists on 40 of 50 posts, using real data, not a guess.** Rather than skip this or fabricate timestamps, I checked all 50 videos live: navigated to each one's real YouTube watch page and read its actual chapter markers straight out of the page's own data (`ytInitialData`), the same data YouTube itself renders the chapter list from. 40 videos have real chapters; the other 10 genuinely don't (confirmed, not just missed), and nothing was added for those. Every chapter link points to the exact timestamp on YouTube (`?t=Ns`).
+- **One genuine surprise from checking live data**: this also confirmed the video IDs used throughout the site's JSON-LD and embeds are all real and correctly matched to Kiran's actual YouTube channel (Kiran Goes Places) — a useful sanity check that wasn't the original goal but came for free from doing the chapter lookup properly.
+- Both blocks reuse the existing `.faq-item` accordion component from the homepage FAQ, so no new interaction pattern was introduced, just new content inside the established one. Verified in-browser: both the chapters and summary accordions expand correctly, links to YouTube resolve, styling picks up the site's clay accent colour.
+- Scope check: every change across all 50 files is additive. The `git diff` shows one 'removed' line per file, but every single one of those is the exact same closing `</div>` tag reformatted to a new indent level, not content — confirmed programmatically across all 50 before this was called done.
+- Hub pages were deliberately not given their own separate transcript/summary/chapter blocks. They already carry `VideoObject` markup (Phase 3) pointing at the same videos; duplicating the summary text across both the hub and the post would be redundant content living at two URLs for no benefit.
+
 ## Phase 5: internal linking (2026-08-18)
 
 Went from 18 cross-post links across 9 of 50 posts (the Phase 0 baseline) to a fully connected link graph. Four pieces:
