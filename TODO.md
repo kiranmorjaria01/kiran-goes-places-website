@@ -15,6 +15,19 @@ Running list across all phases. Phase 1 additions below; will grow as later phas
 - **VideoObject `duration`**: omitted entirely across all 50 posts, no source for it anywhere in the repo.
 - **BreadcrumbList depth**: currently Home / Blog / [post] on every post. Once Phase 3 ships the destination hub pages, these need a fourth level inserted (Home / [Destination] / Blog / [post], or however you'd prefer the hierarchy read) — noting it now so it doesn't get missed.
 
+## Hub page Quick Facts gaps (Phase 3)
+
+Every field below was left out of its hub's Quick Facts block because no existing post states it, not because it was overlooked. If you can point me at (or write) a source for any of these, they're quick to add:
+
+- **Best time to visit:** missing for Colombia, Peru, Guatemala (only have a narrow Acatenango-specific dry/wet note, not a whole-country one), Japan, Nepal. Have it for Bolivia (Uyuni dry/wet season) and Patagonia (Puerto Natales' flight window).
+- **Suggested trip length:** missing as an overall figure for Peru, Bolivia, Japan (beyond Tokyo's 5 days), Nepal. Have it for Colombia (2-4 weeks) and Guatemala (7/10/14 days); Peru and Patagonia have component lengths (e.g. '4 days for the Salkantay Trek') rather than a single trip-length figure.
+- **Currency:** missing for Bolivia (boliviano is never named in any Bolivia post, even though obviously correct), Patagonia/Chile, Nepal. Have it for Colombia, Peru, Guatemala, Japan (all literally named in the posts).
+- **Rough daily budget:** missing on every hub. None of the 50 posts state a per-day budget figure, only scattered per-item or per-tour prices, so this field doesn't appear anywhere rather than being approximated from those.
+
+## Nepal hub is thin (Phase 3)
+
+Only Kathmandu is covered by existing posts (2 of them). The homepage's own About section mentions the Everest Base Camp trek happened, but there's no blog post for it, so the Nepal hub can't link to or describe it. Worth prioritising an EBC write-up if Nepal is meant to be a fuller hub eventually.
+
 ## Missing video transcripts (Phase 6, not started)
 
 Not yet assessed — will list every video needing a real transcript once Phase 6 starts.

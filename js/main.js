@@ -47,6 +47,32 @@
     });
   }
 
+  /* ---------- Destinations dropdown: click/tap toggle (hover handles desktop mouse via CSS) ---------- */
+  document.querySelectorAll(".nav-dropdown-trigger").forEach(function (trigger) {
+    trigger.addEventListener("click", function (e) {
+      e.preventDefault();
+      var dropdown = trigger.closest(".nav-dropdown");
+      var isOpen = dropdown.classList.contains("is-open");
+      document.querySelectorAll(".nav-dropdown.is-open").forEach(function (d) {
+        d.classList.remove("is-open");
+        d.querySelector(".nav-dropdown-trigger").setAttribute("aria-expanded", "false");
+      });
+      if (!isOpen) {
+        dropdown.classList.add("is-open");
+        trigger.setAttribute("aria-expanded", "true");
+      }
+    });
+  });
+
+  document.addEventListener("click", function (e) {
+    document.querySelectorAll(".nav-dropdown.is-open").forEach(function (d) {
+      if (!d.contains(e.target)) {
+        d.classList.remove("is-open");
+        d.querySelector(".nav-dropdown-trigger").setAttribute("aria-expanded", "false");
+      }
+    });
+  });
+
   /* ---------- Smooth-scroll in-page links, offset for the fixed nav ---------- */
   document.querySelectorAll('a[href^="#"]').forEach(function (link) {
     var hash = link.getAttribute("href");

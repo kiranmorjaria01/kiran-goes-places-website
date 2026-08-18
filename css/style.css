@@ -196,11 +196,54 @@ ul { margin: 0; padding: 0; }
   transition: max-height 0.3s var(--ease);
   border-top: 1px solid var(--grey-100);
 }
-.nav-mobile.is-open { max-height: 240px; }
+.nav-mobile.is-open { max-height: min(640px, calc(100vh - 64px)); overflow-y: auto; }
 .nav-mobile a {
   padding: 16px var(--gutter);
   font-weight: 600;
   border-bottom: 1px solid var(--grey-100);
+}
+
+/* Destinations dropdown (desktop nav) */
+.nav-dropdown { position: relative; }
+.nav-dropdown-trigger {
+  background: none;
+  border: none;
+  font: inherit;
+  font-weight: 600;
+  color: inherit;
+  cursor: pointer;
+  padding: 0;
+}
+.nav-dropdown-trigger:hover { opacity: 0.6; }
+.nav-dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  min-width: 160px;
+  background: var(--white);
+  border-radius: 12px;
+  box-shadow: 0 16px 36px rgba(0,0,0,0.16);
+  padding: var(--space-1);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.2s var(--ease), visibility 0.2s var(--ease);
+  z-index: 20;
+}
+.nav-dropdown-menu a {
+  display: block;
+  padding: 10px 14px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 14px;
+  white-space: nowrap;
+  color: var(--black);
+}
+.nav-dropdown-menu a:hover { background: var(--grey-100); opacity: 1; }
+.nav-dropdown:hover .nav-dropdown-menu,
+.nav-dropdown.is-open .nav-dropdown-menu {
+  opacity: 1;
+  visibility: visible;
 }
 
 @media (min-width: 860px) {
