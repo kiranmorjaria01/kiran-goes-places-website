@@ -2,6 +2,13 @@
 
 Tracks what shipped per phase of the GEO/AEO brief. One entry per phase, most recent first.
 
+## Phase 3 fixup: hub page styling (2026-08-18)
+
+You flagged the Quick Facts blocks and intro paragraph looking off after seeing the Colombia hub live. Two scoped CSS fixes, applied to all 7 hubs:
+- The Quick Facts cards were stretching to match the height of the tallest card in the row (default CSS grid behaviour), leaving big empty gaps in the shorter ones. Added `.quick-facts-grid`/`.quick-fact` (new classes, only used on hub pages) so cards size to their own content instead.
+- The direct-answer paragraph was squeezed into a 52-character column, a width `.blog-header p` was only ever designed for a one-line tagline (its only prior use, on `/blog/`). Added a `.hub-lede` modifier widening it to 68 characters for the 60-90 word hub paragraphs specifically, without touching `.blog-header p`'s existing behaviour anywhere else.
+- You separately asked me to add an estimated daily budget to Quick Facts, researched from other travel blogs and averaged. I flagged that this directly conflicts with the brief's own no-invented-facts rule (it would read as Kiran's own spend data when it's actually a third-party average), and you confirmed: leave the gap as documented in TODO.md rather than override the rule.
+
 ## Phase 3: destination hub pages (2026-08-18)
 
 Seven new pages at `/colombia/`, `/peru/`, `/guatemala/`, `/patagonia/`, `/bolivia/`, `/japan/` and `/nepal/`, built entirely from facts already stated in the posts they group. Reused the site's existing component classes throughout (`.blog-header`, `.services`/`.service`, `.guides`/`.guide-card`, `.post-list`/`.post-card`, `.faq`/`.faq-item`) rather than inventing new visual patterns, per the no-restyle constraint.
