@@ -2,6 +2,20 @@
 
 Tracks what shipped per phase of the GEO/AEO brief. One entry per phase, most recent first.
 
+## Phase 5: internal linking (2026-08-18)
+
+Went from 18 cross-post links across 9 of 50 posts (the Phase 0 baseline) to a fully connected link graph. Four pieces:
+
+- **Every post now links up to its destination hub.** Added next to the existing 'Back to blog' link, as a new breadcrumb-style row (e.g. '‹ Back to blog · Colombia Travel Guide'), on all 50 posts. The JSON-LD `BreadcrumbList` was upgraded from 3 levels (Home / Blog / Post) to 4 (Home / [Destination Hub] / Blog / Post) to match, using real JSON parsing this time rather than regex string-splicing after the first attempt at this corrupted the JSON-LD across all 50 files (caught before committing, fixed by reverting to the last commit and rewriting the logic to parse-modify-reserialize instead of pattern-matching raw text).
+- **Every hub already links down to all its posts** (built in Phase 3), so that half of 'every post links up, every hub links down' was already done.
+- **A 'More from [Destination]' related-posts block** at the foot of every post, 3 cards (or however many exist in a small cluster — Nepal only has 2 posts total, so its related-posts block shows the 1 other one), reusing the exact `.post-card` component from the blog listing page.
+- **In-body cross-links**, added two ways:
+  - **The safest, highest-value class first**: ~30 sentences already existed across the site where a post says something like 'I've written up everything I wish I'd known before setting off' or 'a separate post because it deserves its own space', referring to another specific post by description, just never hyperlinked. Grepped for this pattern across all 50 posts, manually confirmed what each one actually refers to, and wrapped the existing phrase in a link, without writing a single new sentence. 22 posts got 1-2 links this way.
+  - **The brief's explicit example**: the Colombia itinerary post now links Medellín, Minca, Tayrona, Cartagena and Salento in its opening paragraph plus Bogotá further down, using the place names already in the sentence as anchor text. Replicated the same pattern in the Guatemala itinerary post (Antigua, Acatenango, Lake Atitlán, San Pedro, San Juan, Tikal, Semuc Champey) and added single natural links in Cusco (→ Salkantay Trek) and La Paz (→ Uyuni Salt Flats) where the existing prose already named the other post's subject.
+  - Total: 60 cross-post link instances now live in article bodies (up from 18), across 30 of 50 posts. Anchor text throughout is the descriptive phrase already in the sentence — never 'read more' or 'click here'.
+- **Fixed a real visual bug this surfaced**: article body links had no colour or underline (`a { color: inherit; text-decoration: none; }` is the global reset), so every new in-body link was invisible as a link until styled. Added `.article-body p a` / `.article-body li a` using the site's existing clay accent colour, verified in-browser.
+- Verified: all 50 files still parse as valid HTML, all 29 unique cross-post body links resolve to real posts, zero self-links, all 50 `BreadcrumbList` nodes are valid 4-level JSON.
+
 ## Phase 4: making individual posts extractable (2026-08-18)
 
 Every one of the 50 posts got three additions. Verified programmatically that every diff across all 50 files is pure addition, zero lines removed or changed anywhere in the body copy, headings, or existing structure.
