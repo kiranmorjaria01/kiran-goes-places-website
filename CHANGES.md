@@ -2,6 +2,15 @@
 
 Tracks what shipped per phase of the GEO/AEO brief. One entry per phase, most recent first.
 
+## Third round of post-review fixes: Quick Facts sizing and labels (2026-08-18)
+
+The previous round's "stretch cards + centre content" fix for uneven Quick Facts rows just moved the problem: a one-line fact like Language now stretched to match a much longer neighbour in the same row, so it sat centred alone in a mostly-empty box, which you flagged as looking weird, particularly on Japan where two facts had grown into full paragraphs. Root cause was the content itself, not the CSS: Quick Facts had drifted from short scannable answers into small essays. Fixed properly this time:
+
+- **Reverted to cards sizing to their own content** (`align-items: start`), not stretching to the row's tallest sibling.
+- **Shortened every Quick Facts value that had grown into a paragraph** back down to a single short line or two, on all 7 hubs: Best Season on every hub, Recommended trip time on Bolivia/Japan/Nepal, and Japan's Popular Spots tile (which had become full sentences rather than the short place-name list every other hub uses). Where a hub's FAQ already answers the same "why" in more depth (Bolivia's mirror-effect timing, Patagonia's trekking season), the detail was already there, so nothing was lost, just no longer duplicated in a tile that's meant to be a quick scan. With facts genuinely short again, `align-items: start` now produces evenly sized cards without needing to force it.
+- **Renamed two labels sitewide, all 7 hubs**: 'Language' → 'Main Language', and 'Main regions covered' → 'Popular Spots' (this was the label change already made Japan-only last round; it's now consistent everywhere).
+- Verified in-browser (Colombia, Japan): no card looks oversized or squashed, Main Language/Popular Spots read correctly on every hub. Verified programmatically: HTML/JSON-LD still parse on all 7 files, `nav-dropdown-menu` present exactly once per file, old labels ('Language', 'Main regions covered') no longer appear anywhere, new ones do.
+
 ## Second round of post-review fixes (2026-08-18)
 
 More feedback from reviewing the branch locally:

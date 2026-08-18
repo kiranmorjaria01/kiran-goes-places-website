@@ -719,18 +719,21 @@ ul { margin: 0; padding: 0; }
   .services-grid { grid-template-columns: repeat(3, 1fr); }
 }
 
-/* Quick Facts grid (destination hub pages): like .services-grid, cards
-   stretch to match the tallest sibling in their row (default CSS grid
-   behaviour), but the content inside each card is vertically centred rather
-   than pinned to the top. That's what actually fixes the "big empty gap"
-   problem a short card used to get next to a long one: the row still lines
-   up evenly, and a one-line fact just sits centred in its card instead of
-   floating at the top with dead space underneath. */
+/* Quick Facts grid (destination hub pages): like .services-grid, but cards
+   size to their own content (align-items: start) rather than stretching to
+   match the tallest sibling in the row. Stretching looked fine when one card
+   in a row ran long, but made every short one-line fact (Currency, Language)
+   balloon into a mostly-empty box next to it, which read as broken. Facts
+   are kept short and scannable on purpose now (the "why" for anything that
+   needs more explaining, like a best-season call, lives in the FAQ below
+   instead), so with align-items: start the natural size difference between
+   cards is small enough that the grid looks tidy without any stretching. */
+.quick-facts-grid { align-items: start; }
 .quick-fact {
   background: var(--clay-light);
   border-radius: 16px;
   padding: var(--space-3) var(--space-4);
-  min-height: 132px;
+  min-height: 84px;
   display: flex;
   flex-direction: column;
   justify-content: center;
