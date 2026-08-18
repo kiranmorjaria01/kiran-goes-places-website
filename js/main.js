@@ -47,7 +47,39 @@
     });
   }
 
+  /* ---------- Destinations dropdown: click/tap toggle (hover handles desktop mouse via CSS) ---------- */
+  document.querySelectorAll(".nav-dropdown-trigger").forEach(function (trigger) {
+    trigger.addEventListener("click", function (e) {
+      e.preventDefault();
+      var dropdown = trigger.closest(".nav-dropdown");
+      var isOpen = dropdown.classList.contains("is-open");
+      document.querySelectorAll(".nav-dropdown.is-open").forEach(function (d) {
+        d.classList.remove("is-open");
+        d.querySelector(".nav-dropdown-trigger").setAttribute("aria-expanded", "false");
+      });
+      if (!isOpen) {
+        dropdown.classList.add("is-open");
+        trigger.setAttribute("aria-expanded", "true");
+      }
+    });
+  });
+
+  document.addEventListener("click", function (e) {
+    document.querySelectorAll(".nav-dropdown.is-open").forEach(function (d) {
+      if (!d.contains(e.target)) {
+        d.classList.remove("is-open");
+        d.querySelector(".nav-dropdown-trigger").setAttribute("aria-expanded", "false");
+      }
+    });
+  });
+
   /* ---------- Smooth-scroll in-page links, offset for the fixed nav ---------- */
+  function scrollToHashTarget(target, behavior) {
+    var navHeight = nav ? nav.getBoundingClientRect().height : 0;
+    var top = target.getBoundingClientRect().top + window.scrollY - navHeight - 16;
+    window.scrollTo({ top: top, behavior: behavior || "smooth" });
+  }
+
   document.querySelectorAll('a[href^="#"]').forEach(function (link) {
     var hash = link.getAttribute("href");
     if (!hash || hash.length < 2) { return; }
@@ -55,11 +87,48 @@
       var target = document.querySelector(hash);
       if (!target) { return; }
       e.preventDefault();
-      var navHeight = nav ? nav.getBoundingClientRect().height : 0;
-      var top = target.getBoundingClientRect().top + window.scrollY - navHeight - 16;
-      window.scrollTo({ top: top, behavior: "smooth" });
+      scrollToHashTarget(target);
     });
   });
+
+  /* ---------- Land correctly on a #hash when arriving from another page ----------
+     Browsers scroll to the target on their own before the fixed nav's height is
+     accounted for, so the first arrival can land with the nav overlapping the
+     target. Worse, on a slower connection the page keeps reflowing for a while
+     after that (fonts, iframes, below-the-fold images), which quietly moves the
+     target and undoes a single one-shot correction, which is what made this need
+     two or three clicks before it looked right. Instead of waiting for one 'load'
+     event, keep re-checking the target's position for a few seconds and correct
+     it each time it moves, until it holds still twice in a row, and give up
+     immediately if the visitor scrolls/touches/types, since that means they've
+     taken over. */
+  if (window.location.hash && window.location.hash.length > 1) {
+    var landingTarget = document.querySelector(window.location.hash);
+    if (landingTarget) {
+      var settleAttempts = 0;
+      var maxSettleAttempts = 25; // ~5s total at 200ms apart
+      var lastTop = null;
+      var settleCancelled = false;
+
+      var cancelSettle = function () { settleCancelled = true; };
+      ["wheel", "touchstart", "keydown"].forEach(function (evt) {
+        window.addEventListener(evt, cancelSettle, { once: true, passive: true });
+      });
+
+      var settle = function () {
+        if (settleCancelled || settleAttempts >= maxSettleAttempts) { return; }
+        settleAttempts++;
+        var top = landingTarget.getBoundingClientRect().top + window.scrollY;
+        if (lastTop === null || Math.abs(top - lastTop) > 2) {
+          lastTop = top;
+          scrollToHashTarget(landingTarget, "auto");
+          window.setTimeout(settle, 200);
+        }
+      };
+      settle();
+      window.addEventListener("load", settle);
+    }
+  }
 
   /* ---------- Fade-in on scroll ---------- */
   var fadeEls = document.querySelectorAll(".fade-in");

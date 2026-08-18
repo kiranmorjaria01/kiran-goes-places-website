@@ -4,12 +4,12 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<title>Kiran Goes Places | Manchester Travel Vlogger &amp; Content Creator</title>
-<meta name="description" content="Kiran Goes Places is a Manchester travel vlogger covering adventure travel from Everest Base Camp to the Torres del Paine in Patagonia. UK based travel vlogger and presenter available for destination campaigns, brand partnerships and hosting.">
-<meta name="keywords" content="travel content creator UK, adventure travel vlogger, backpacking YouTuber, travel influencer UK, destination marketing, tourism board partnership, South Asian travel creator, Manchester travel vlogger, travel brand partnerships, trekking vlogger">
+<title>Kiran Goes Places | Manchester Travel Vlogger</title>
+<meta name="description" content="Kiran Goes Places is a Manchester travel vlogger covering adventure travel from Everest Base Camp to Torres del Paine. Available for brand partnerships.">
 <meta name="author" content="Kiran Goes Places">
 <link rel="canonical" href="https://kirangoesplaces.com/">
 <meta name="robots" content="index, follow">
+<link rel="alternate" type="application/rss+xml" title="Kiran Goes Places - Blog" href="https://kirangoesplaces.com/blog/feed.xml">
 
 <!-- Open Graph -->
 <meta property="og:type" content="profile">
@@ -35,39 +35,113 @@
 <link rel="preload" as="video" href="/video/reel.mp4?v=3" type="video/mp4">
 <link rel="stylesheet" href="/css/style.css">
 
-<!-- Schema.org Person -->
+<!-- Schema.org: Person, Organization, FAQPage -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Person",
-  "name": "Kiran Goes Places",
-  "alternateName": "Kiran Morjaria",
-  "url": "https://kirangoesplaces.com/",
-  "image": "https://kirangoesplaces.com/images/og-image.jpg",
-  "jobTitle": "Travel Creator & Presenter",
-  "description": "Manchester travel vlogger and UK based travel creator known for adventure trekking, backpacking and immersive destination content across South America, Asia and beyond.",
-  "nationality": {
-    "@type": "Country",
-    "name": "British"
-  },
-  "homeLocation": {
-    "@type": "Place",
-    "name": "Manchester, UK",
-    "address": {
-      "@type": "PostalAddress",
-      "addressLocality": "Manchester",
-      "addressCountry": "GB"
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": "https://kirangoesplaces.com/#person",
+      "name": "Kiran Morjaria",
+      "alternateName": "Kiran Goes Places",
+      "url": "https://kirangoesplaces.com/",
+      "image": "https://kirangoesplaces.com/images/og-image.jpg",
+      "jobTitle": "Travel Creator & Presenter",
+      "description": "Manchester travel vlogger and UK based travel creator known for adventure trekking, backpacking and immersive destination content across South America, Asia and beyond. Also a BBC broadcaster (BBC Morning Live, BBC Asian Network), a stand up comedian, and a practising NHS doctor.",
+      "nationality": {
+        "@type": "Country",
+        "name": "British"
+      },
+      "homeLocation": {
+        "@type": "Place",
+        "name": "Manchester, UK",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Manchester",
+          "addressCountry": "GB"
+        }
+      },
+      "knowsAbout": [
+        "Travel",
+        "Adventure Trekking",
+        "Backpacking",
+        "Content Creation",
+        "Brand Partnerships"
+      ],
+      "affiliation": {
+        "@type": "Organization",
+        "name": "BBC"
+      },
+      "worksFor": {
+        "@id": "https://kirangoesplaces.com/#organization"
+      },
+      "sameAs": [
+        "https://www.instagram.com/kirangoesplaces/",
+        "https://www.youtube.com/@KiranGoesPlaces",
+        "https://www.tiktok.com/@kirangoesplaces"
+      ]
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://kirangoesplaces.com/#organization",
+      "name": "Kiran Goes Places",
+      "url": "https://kirangoesplaces.com/",
+      "logo": "https://kirangoesplaces.com/images/logo-avatar.webp",
+      "founder": {
+        "@id": "https://kirangoesplaces.com/#person"
+      },
+      "sameAs": [
+        "https://www.instagram.com/kirangoesplaces/",
+        "https://www.youtube.com/@KiranGoesPlaces",
+        "https://www.tiktok.com/@kirangoesplaces"
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Who is Kiran Goes Places?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Kiran Goes Places is the travel brand of Kiran Morjaria, a Manchester travel vlogger and broadcaster. He's one of the UK's travel vloggers making adventure and destination travel content, trekking, backpacking and cultural immersion, built to make people actually want to go there."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Where has Kiran travelled?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Recent trips include trekking to Everest Base Camp in Nepal, Torres del Paine and the Atacama Desert in Chile, Acatenango volcano and Machu Picchu in Guatemala and Peru, plus content from Japan, Sri Lanka, Thailand, Laos, Bolivia, Colombia and the Philippines, among others."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is Kiran available for brand and destination partnerships?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Kiran works with tourism boards, hotels, resorts and travel adjacent brands to create content that's entertaining, shareable and genuinely drives bookings. Get in touch via the contact form below."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does Kiran do hosting and live events?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, including travel expos, brand launches and campaign events. Alongside travel content, Kiran is an NHS doctor with regular live TV experience (BBC Morning Live, BBC Asian Network) and a stand up comedian, so he's well practised at hosting and presenting in front of a camera or a crowd, worldwide."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Where is Kiran based?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Manchester, UK. He films across the UK and internationally for the right trip."
+          }
+        }
+      ]
     }
-  },
-  "knowsAbout": ["Travel", "Adventure Trekking", "Backpacking", "Content Creation", "Brand Partnerships"],
-  "affiliation": {
-    "@type": "Organization",
-    "name": "BBC"
-  },
-  "sameAs": [
-    "https://www.instagram.com/kirangoesplaces/",
-    "https://www.youtube.com/@KiranGoesPlaces",
-    "https://www.tiktok.com/@kirangoesplaces"
   ]
 }
 </script>
@@ -84,8 +158,20 @@
       KIRAN GOES PLACES
     </a>
     <nav class="nav-links" aria-label="Primary">
-      <a href="#about">About</a>
+      <a href="/about/">About</a>
       <a href="#travel-guides">Travel Guides</a>
+      <div class="nav-dropdown">
+        <button class="nav-dropdown-trigger" aria-haspopup="true" aria-expanded="false">Destinations</button>
+        <div class="nav-dropdown-menu">
+          <a href="/colombia/">Colombia</a>
+          <a href="/peru/">Peru</a>
+          <a href="/guatemala/">Guatemala</a>
+          <a href="/patagonia/">Patagonia</a>
+          <a href="/bolivia/">Bolivia</a>
+          <a href="/japan/">Japan</a>
+          <a href="/nepal/">Nepal</a>
+        </div>
+      </div>
       <a href="/blog/">Blog</a>
       <a href="#contact" class="nav-cta">Work With Me</a>
     </nav>
@@ -94,8 +180,15 @@
     </button>
   </div>
   <nav class="nav-mobile" id="navMobile" aria-label="Mobile">
-    <a href="#about">About</a>
+    <a href="/about/">About</a>
     <a href="#travel-guides">Travel Guides</a>
+    <a href="/colombia/">Colombia</a>
+    <a href="/peru/">Peru</a>
+    <a href="/guatemala/">Guatemala</a>
+    <a href="/patagonia/">Patagonia</a>
+    <a href="/bolivia/">Bolivia</a>
+    <a href="/japan/">Japan</a>
+    <a href="/nepal/">Nepal</a>
     <a href="/blog/">Blog</a>
     <a href="#contact">Work With Me</a>
   </nav>

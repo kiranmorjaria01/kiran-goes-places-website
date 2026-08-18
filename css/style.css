@@ -196,11 +196,54 @@ ul { margin: 0; padding: 0; }
   transition: max-height 0.3s var(--ease);
   border-top: 1px solid var(--grey-100);
 }
-.nav-mobile.is-open { max-height: 240px; }
+.nav-mobile.is-open { max-height: min(640px, calc(100vh - 64px)); overflow-y: auto; }
 .nav-mobile a {
   padding: 16px var(--gutter);
   font-weight: 600;
   border-bottom: 1px solid var(--grey-100);
+}
+
+/* Destinations dropdown (desktop nav) */
+.nav-dropdown { position: relative; }
+.nav-dropdown-trigger {
+  background: none;
+  border: none;
+  font: inherit;
+  font-weight: 600;
+  color: inherit;
+  cursor: pointer;
+  padding: 0;
+}
+.nav-dropdown-trigger:hover { opacity: 0.6; }
+.nav-dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  min-width: 160px;
+  background: var(--white);
+  border-radius: 12px;
+  box-shadow: 0 16px 36px rgba(0,0,0,0.16);
+  padding: var(--space-1);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.2s var(--ease), visibility 0.2s var(--ease);
+  z-index: 20;
+}
+.nav-dropdown-menu a {
+  display: block;
+  padding: 10px 14px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 14px;
+  white-space: nowrap;
+  color: var(--black);
+}
+.nav-dropdown-menu a:hover { background: var(--grey-100); opacity: 1; }
+.nav-dropdown:hover .nav-dropdown-menu,
+.nav-dropdown.is-open .nav-dropdown-menu {
+  opacity: 1;
+  visibility: visible;
 }
 
 @media (min-width: 860px) {
@@ -676,6 +719,40 @@ ul { margin: 0; padding: 0; }
   .services-grid { grid-template-columns: repeat(3, 1fr); }
 }
 
+/* Quick Facts grid (destination hub pages): like .services-grid, but cards
+   size to their own content (align-items: start) rather than stretching to
+   match the tallest sibling in the row. Stretching looked fine when one card
+   in a row ran long, but made every short one-line fact (Currency, Language)
+   balloon into a mostly-empty box next to it, which read as broken. Facts
+   are kept short and scannable on purpose now (the "why" for anything that
+   needs more explaining, like a best-season call, lives in the FAQ below
+   instead), so with align-items: start the natural size difference between
+   cards is small enough that the grid looks tidy without any stretching. */
+.quick-facts-grid { align-items: start; }
+.quick-fact {
+  background: var(--clay-light);
+  border-radius: 16px;
+  padding: var(--space-3) var(--space-4);
+  min-height: 84px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.quick-fact h3 {
+  font-size: 15px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  margin-bottom: 6px;
+}
+.quick-fact p {
+  color: var(--grey-700);
+  line-height: 1.5;
+  font-size: 16px;
+}
+/* Override .article-body p's larger margin when a facts grid sits inside a post body */
+.article-facts .quick-fact p { margin: 0; }
+
 /* ==========================================================================
    FAQ
    ========================================================================== */
@@ -838,6 +915,10 @@ ul { margin: 0; padding: 0; }
   margin-left: auto;
   margin-right: auto;
 }
+.blog-header p.hub-lede {
+  max-width: 68ch;
+  line-height: 1.6;
+}
 .post-list {
   padding: 0 var(--gutter) var(--space-7);
   max-width: var(--max-w);
@@ -899,6 +980,15 @@ ul { margin: 0; padding: 0; }
   margin-bottom: var(--space-4);
 }
 .article-back:hover { color: var(--black); }
+.article-breadcrumbs {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: var(--space-4);
+}
+.article-breadcrumbs .article-back { margin-bottom: 0; }
+.article-breadcrumbs .sep { color: var(--grey-300); }
 .article-title {
   font-size: clamp(30px, 5.5vw, 48px);
   line-height: 1.08;
@@ -926,6 +1016,27 @@ ul { margin: 0; padding: 0; }
 }
 .article-byline-name { font-weight: 700; font-size: 15px; }
 .article-byline-date { color: var(--grey-500); font-size: 13px; }
+.article-updated { margin-top: 2px; }
+
+/* "The short version" block, directly under the H1 on every post */
+.article-tldr {
+  background: var(--clay-light);
+  border-radius: 16px;
+  padding: var(--space-4);
+  margin-top: var(--space-3);
+}
+.article-tldr .eyebrow { color: var(--clay-dark); margin-bottom: var(--space-2); }
+.article-tldr ul {
+  margin: 0;
+  padding-left: 1.2em;
+}
+.article-tldr li {
+  margin-bottom: 8px;
+  line-height: 1.6;
+  color: var(--grey-700);
+  font-size: 16px;
+}
+.article-tldr li:last-child { margin-bottom: 0; }
 .article-cover {
   width: 100%;
   height: auto;
@@ -941,6 +1052,12 @@ ul { margin: 0; padding: 0; }
   color: var(--grey-700);
 }
 .article-body p { margin-bottom: var(--space-3); }
+.article-body p a, .article-body li a {
+  color: var(--clay-dark);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.article-body p a:hover, .article-body li a:hover { color: var(--clay); }
 .article-body h2 {
   font-size: 24px;
   font-weight: 800;
@@ -965,4 +1082,61 @@ ul { margin: 0; padding: 0; }
 .article-video {
   margin-top: var(--space-6);
 }
+.related-posts {
+  margin-top: var(--space-6);
+  padding-top: var(--space-5);
+  border-top: 1px solid var(--grey-300);
+}
+.related-post-list {
+  padding: 0;
+  max-width: none;
+  margin-top: var(--space-4);
+}
+.article-author {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: var(--space-6);
+  padding-top: var(--space-5);
+  border-top: 1px solid var(--grey-300);
+}
+.article-author img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+.article-author p {
+  font-size: 14px;
+  color: var(--grey-700);
+}
+.article-author a { color: var(--clay-dark); text-decoration: underline; }
+.article-author a:hover { color: var(--clay); }
 .article-video .showreel-frame { margin-top: var(--space-3); }
+.article-transcript { margin-top: var(--space-4); }
+.article-transcript .transcript-note {
+  font-size: 13px;
+  font-style: italic;
+  color: var(--grey-500);
+  margin-top: var(--space-2);
+}
+.chapter-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  max-width: 65ch;
+}
+.chapter-list li { margin-bottom: 6px; }
+.chapter-list a {
+  display: flex;
+  gap: 10px;
+  color: var(--grey-700);
+}
+.chapter-list a:hover { color: var(--clay-dark); }
+.chapter-time {
+  color: var(--clay-dark);
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  flex-shrink: 0;
+}
